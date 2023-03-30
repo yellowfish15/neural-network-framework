@@ -57,7 +57,7 @@ void BasicModel::train(const std::vector<double>& input, const std::vector<doubl
 void BasicModel::fit(const DataSet& data, int epochs) {
     for(int i = 0; i < epochs; i++)
         for(int k = 0; k < data.N; k++)
-            BasicModel::train(data.inputs[k], data.inputs[k]);
+            BasicModel::train(data.inputs[k], data.outputs[k]);
 }
 
 void BasicModel::predictAndPrint(const std::vector<double>& input) {

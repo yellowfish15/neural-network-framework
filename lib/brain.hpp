@@ -6,6 +6,7 @@
 #ifndef BRAIN_H
 #define BRAIN_H
 
+// Basic Feedforward Neural Network
 class BasicModel {
     const double lRate; // learning rate
     const int numLayers; // includes input, hidden, and output layers

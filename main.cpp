@@ -10,8 +10,8 @@ int main() {
 
     // set up model
     DataSet data("./data.in");
-    const int sizes[4] = {2, 16, 16, 1};
-    BasicModel brain(4, sizes, 0.03);
+    const int sizes[] = {2, 16, 1};
+    BasicModel brain(3, sizes, 0.03);
 
     // train model
     brain.fit(data, 100000);
