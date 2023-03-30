@@ -62,9 +62,14 @@ void BasicModel::fit(const DataSet& data, int epochs) {
 
 void BasicModel::predictAndPrint(const std::vector<double>& input) {
     BasicModel::predict(input);
+
+    printf("->");
+    for(int i = 0; i < input.size(); i++)
+        printf(" %.4f", input[i]);
+    printf("\n<-");
     for(int i = 0; i < sizes[numLayers-1]; i++)
-        printf("%f ", neurons[numLayers-1].matrix[i][0]);
-    printf("\n");
+        printf(" %.4f", neurons[numLayers-1].matrix[i][0]);
+    printf("\n\n");
 }
 
 // when you are finished, please free the associated memroy
