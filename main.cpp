@@ -10,11 +10,11 @@ int main() {
 
     // set up model
     DataSet data("./data.in");
-    const int sizes[] = {2, 16, 1};
+    const int sizes[] = {2, 4, 1};
     BasicModel brain(3, sizes, 0.03);
 
     // train model
-    brain.fit(data, 100000);
+    brain.fit(data, 1000000);
 
     // print the results of each sample
     for(int i = 0; i < data.N; i++)
