@@ -1,4 +1,5 @@
 #include <vector>
+#include <cstdio>
 
 // header file for utilities library
 #ifndef UTILITIES_H
@@ -13,9 +14,15 @@ class Matrix {
         int rows, cols;
         Matrix(int rows, int cols);
         Matrix(int rows, int cols, double ** values);
+
+        ~Matrix() {
+            for(int i = 0; i < rows; i++)
+                delete[] matrix[i];
+            delete[] matrix;
+        }
+
         void randomize();
         void set(const std::vector<std::vector<double>>& v);
-        void destruct();
 };
 #endif
 
@@ -34,11 +41,11 @@ class ColumnVector: public Matrix {
 #endif
 
 // Global Functions
-void add(const Matrix& A, Matrix& B);
-void subtract(const Matrix& A, const Matrix& B, Matrix & y);
-void multiply(const Matrix& A, Matrix& B);
-void multiply(const Matrix& A, const Matrix& B, Matrix& y);
-void sigmoid(Matrix& x);
-void dsigmoid(Matrix& x);
+void add(const Matrix* A, Matrix* B);
+void subtract(const Matrix* A, const Matrix* B, Matrix* y);
+void multiply(const Matrix* A, Matrix* B);
+void multiply(const Matrix* A, const Matrix* B, Matrix* y);
+void sigmoid(Matrix* x);
+void dsigmoid(Matrix* x);
 
 #endif
